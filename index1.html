@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multidimensional Cube Quiz - Data Warehousing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 900px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question p {
+            font-weight: bold;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Multidimensional Cube Quiz</h1>
+
+```
+<form id="quizForm">
+
+    <div class="question">
+        <p>1. What is a multidimensional cube in data warehousing?</p>
+        <input type="radio" name="q1" value="a"> A database table<br>
+        <input type="radio" name="q1" value="b"> A structure for organizing and analyzing data across multiple dimensions<br>
+        <input type="radio" name="q1" value="c"> A programming language<br>
+        <input type="radio" name="q1" value="d"> A network protocol<br>
+    </div>
+
+    <div class="question">
+        <p>2. Which operation allows selecting a single dimension from a cube?</p>
+        <input type="radio" name="q2" value="a"> Drill-up<br>
+        <input type="radio" name="q2" value="b"> Slice<br>
+        <input type="radio" name="q2" value="c"> Roll-up<br>
+        <input type="radio" name="q2" value="d"> Pivot<br>
+    </div>
+
+    <div class="question">
+        <p>3. Which operation reduces the level of detail in a cube?</p>
+        <input type="radio" name="q3" value="a"> Roll-up<br>
+        <input type="radio" name="q3" value="b"> Drill-down<br>
+        <input type="radio" name="q3" value="c"> Slice<br>
+        <input type="radio" name="q3" value="d"> Dice<br>
+    </div>
+
+    <div class="question">
+        <p>4. What is a dimension in a data cube?</p>
+        <input type="radio" name="q4" value="a"> A measure of performance<br>
+        <input type="radio" name="q4" value="b"> A data storage device<br>
+        <input type="radio" name="q4" value="c"> A perspective or category used to analyze data<br>
+        <input type="radio" name="q4" value="d"> A query language<br>
+    </div>
+
+    <div class="question">
+        <p>5. Which of the following is an example of a measure?</p>
+        <input type="radio" name="q5" value="a"> Product<br>
+        <input type="radio" name="q5" value="b"> Region<br>
+        <input type="radio" name="q5" value="c"> Sales Amount<br>
+        <input type="radio" name="q5" value="d"> Time<br>
+    </div>
+
+    <div class="question">
+        <p>6. What does the Dice operation do?</p>
+        <input type="radio" name="q6" value="a"> Rotates the cube<br>
+        <input type="radio" name="q6" value="b"> Selects a sub-cube by specifying ranges on multiple dimensions<br>
+        <input type="radio" name="q6" value="c"> Deletes data<br>
+        <input type="radio" name="q6" value="d"> Aggregates data<br>
+    </div>
+
+    <div class="question">
+        <p>7. Which schema is commonly used for multidimensional cubes?</p>
+        <input type="radio" name="q7" value="a"> Star Schema<br>
+        <input type="radio" name="q7" value="b"> Ring Schema<br>
+        <input type="radio" name="q7" value="c"> Linear Schema<br>
+        <input type="radio" name="q7" value="d"> Circular Schema<br>
+    </div>
+
+    <div class="question">
+        <p>8. What is Drill-down used for?</p>
+        <input type="radio" name="q8" value="a"> Viewing more detailed data<br>
+        <input type="radio" name="q8" value="b"> Aggregating data<br>
+        <input type="radio" name="q8" value="c"> Deleting dimensions<br>
+        <input type="radio" name="q8" value="d"> Creating reports<br>
+    </div>
+
+    <div class="question">
+        <p>9. Which dimension is commonly found in sales data cubes?</p>
+        <input type="radio" name="q9" value="a"> Time<br>
+        <input type="radio" name="q9" value="b"> Compiler<br>
+        <input type="radio" name="q9" value="c"> Algorithm<br>
+        <input type="radio" name="q9" value="d"> Protocol<br>
+    </div>
+
+    <div class="question">
+        <p>10. What is the primary purpose of OLAP cubes?</p>
+        <input type="radio" name="q10" value="a"> Transaction processing<br>
+        <input type="radio" name="q10" value="b"> Data backup<br>
+        <input type="radio" name="q10" value="c"> Multidimensional data analysis and decision support<br>
+        <input type="radio" name="q10" value="d"> Network management<br>
+    </div>
+
+    <button type="button" onclick="calculateScore()">Submit Quiz</button>
+</form>
+
+<div id="result"></div>
+```
+
+</div>
+
+<script>
+function calculateScore() {
+    let score = 0;
+
+    const answers = {
+        q1: "b",
+        q2: "b",
+        q3: "a",
+        q4: "c",
+        q5: "c",
+        q6: "b",
+        q7: "a",
+        q8: "a",
+        q9: "a",
+        q10: "c"
+    };
+
+    for (let q in answers) {
+        let selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === answers[q]) {
+            score++;
+        }
+    }
+
+    document.getElementById("result").innerHTML =
+        "Your Score: " + score + " / 10";
+}
+</script>
+
+</body>
+</html>
